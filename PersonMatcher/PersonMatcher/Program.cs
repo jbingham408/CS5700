@@ -11,11 +11,11 @@ namespace PersonMatcher
         static void Main(string[] args)
         {
             if (args.Length == 3)
-            {
-                Console.Write("true");
-            }
+                Console.Write("3 args");
+            else if (args.Length == 2)
+                Console.Write("2 args");
             else
-                Console.Write("false");
+                Console.Write("Incorrect number of arguments");
         }
     }
 }
