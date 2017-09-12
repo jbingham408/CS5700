@@ -10,6 +10,12 @@ namespace PersonMatcher
     {
         static void Main(string[] args)
         {
+            if (args.Length == 3)
+            {
+                Console.Write("true");
+            }
+            else
+                Console.Write("false");
         }
     }
 }

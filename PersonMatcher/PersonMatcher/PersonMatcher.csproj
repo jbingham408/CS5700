@@ -42,8 +42,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exporter.cs" />
+    <Compile Include="Importer.cs" />
+    <Compile Include="JSONExporter.cs" />
+    <Compile Include="JSONImporter.cs" />
+    <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XMLExporter.cs" />
+    <Compile Include="XMLImporter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
