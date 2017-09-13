@@ -7,7 +7,7 @@ namespace PersonMatcher
     public class Person
     {
         [DataMember]
-        public int ObjectID;
+        public int ObjectId;
         [DataMember]
         public string StateFileNumber;
         [DataMember]

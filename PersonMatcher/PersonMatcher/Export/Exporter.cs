@@ -8,5 +8,6 @@ namespace PersonMatcher
 {
     public abstract class Exporter
     {
+        public abstract void write(List<Person> list, string filename);
     }
 }
