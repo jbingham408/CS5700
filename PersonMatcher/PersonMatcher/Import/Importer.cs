@@ -1,12 +1,11 @@
-﻿using System;
+﻿
+
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PersonMatcher
 {
-    public interface Importer
+    public abstract class Importer
     {
+        public abstract void Read(List<Person> list, string filename);
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PersonMatcher
 {
-    public interface Exporter
+    public abstract class Exporter
     {
     }
 }
