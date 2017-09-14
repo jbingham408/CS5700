@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace PersonMatcher
 {
-    public abstract class Exporter
+    public interface ComparePairs
     {
-        public abstract void Write(List<int[]> matches, string filename);
+        bool ComparePeople(Person a, Person b);
     }
 }

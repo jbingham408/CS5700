@@ -43,10 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompareStrategy\CompareNameAndSSN.cs" />
+    <Compile Include="CompareStrategy\ComparePairs.cs" />
     <Compile Include="Export\Exporter.cs" />
+    <Compile Include="Export\RegularFileExporter.cs" />
     <Compile Include="Import\Importer.cs" />
     <Compile Include="Export\JSONExporter.cs" />
     <Compile Include="Import\JSONImporter.cs" />
+    <Compile Include="Match.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="PersonSet.cs" />
     <Compile Include="Program.cs" />

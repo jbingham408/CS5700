@@ -8,10 +8,10 @@ namespace PersonMatcher
     {
         private readonly XmlSerializer serializer = new XmlSerializer(typeof(List<Person>),
                         new[] { typeof(Person) });
-        public override void write(List<Person> peopleList, string filename)
+        public override void Write(List<int[]> matches, string filename)
         {
             StreamWriter writer = new StreamWriter(filename);
-            serializer.Serialize(writer.BaseStream, peopleList);
+            serializer.Serialize(writer, matches);
             writer.Close();
         }
     }

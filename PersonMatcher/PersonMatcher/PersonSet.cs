@@ -13,7 +13,8 @@ namespace PersonMatcher
         public string myImportFilename { get; set; }
         public string myExportFilename { get; set; }
         public string myStrategyNum { get; set; }
-        
+        private Match myMatches { get; set; }
+
         public void ReadInFile()
         {
             string[] temp = myImportFilename.Split('.');
@@ -38,22 +39,27 @@ namespace PersonMatcher
                 }
         }
 
-        public void writeMatches()
+        public void GetMatches()
         {
-            if(myExportFilename == null)
-                writeMatchesToScreen();
+            myMatches = new Match(Convert.ToInt32(myStrategyNum), this);
+            myMatches.FindMatches();
+        }
+
+        public void WriteMatches()
+        {
+            if (myExportFilename == null)
+                WriteMatchesToScreen();
             else
             {
-                //writePairsToScreen();
-                writeMatchesToFile();
+                //WritePairsToScreen();
+                WriteMatchesToFile();
             }
         }
-        public void writeMatchesToFile()
+        public void WriteMatchesToFile()
         {
-            string filetype = String.Empty;
-            string[] temp = filetype.Split('.');
+            string[] temp = myExportFilename.Split('.');
 
-            if(temp.Length == 2)
+            if (temp.Length == 2)
             {
                 if (temp[1] == "xml")
                 {
@@ -66,19 +72,38 @@ namespace PersonMatcher
                     Console.Write("Output to json file\n");
                 }
                 else
-                    return;
+                {
+                    myExporter = new RegularFileExporter();
+                    myExporter.Write(myMatches.GetMatchesList(), myExportFilename);
+                }
             }
         }
 
-        public void writePairsToScreen()
+        public void WritePairsToScreen()
         {
-
+            foreach (int[] id in myMatches.GetMatchesList())
+            {
+                Console.Write(id[0] + ", " + id[1] + "\n");
+            }
         }
 
-        public void writeMatchesToScreen()
+        public void WriteMatchesToScreen()
         {
-            foreach (Person person in this)
-                Console.WriteLine(person.ObjectId + ": " + person.FirstName);
+            foreach (int[] id in myMatches.GetMatchesList())
+            {
+                Console.Write("Match:\n");
+                foreach (int i in id)
+                {
+                    foreach (Person person in this)
+                    {
+                        if (person.ObjectId == i)
+                        {
+                            Console.Write("\tId=" + person.ObjectId + ", Name=" + person.FirstName + " " + person.MiddleName + " " + person.LastName
+                                + ", Birthday=" + person.BirthMonth + "/" + person.BirthDay + "/" + person.BirthYear + "\n");
+                        }
+                    }
+                }
+            }
         }
 
     }

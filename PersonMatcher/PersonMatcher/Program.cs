@@ -22,9 +22,6 @@ namespace PersonMatcher
             else
                 exportFile = null;
 
-
-
-
             PersonSet peopleList = new PersonSet()
             {
                 myImporter = importer,
@@ -42,17 +39,9 @@ namespace PersonMatcher
                 return;
             }
 
-            peopleList.writeMatches();
-            //    XMLImporter xmlImporter = new XMLImporter();
-            //    JSONImporter jsonImporter = new JSONImporter();
-            //    List<Person> xmlpeopleList = new List<Person>();
-            //    List<Person> jsonpeopleList = new List<Person>();
+            peopleList.GetMatches();
 
-            //    xmlImporter.Read(xmlpeopleList, "XML_PersonTestSet_1.xml");
-            //    jsonImporter.Read(jsonpeopleList, "JSON_PersonTestSet_4.json");
-            //    Console.Write(jsonpeopleList[0].FirstName + "\n");
-            //    Console.Write(jsonpeopleList[5].LastName + "\n");
-            //    Console.Write(jsonpeopleList[jsonpeopleList.Count - 1].LastName + "\n");
+            peopleList.WriteMatches();
         }
     }
 }

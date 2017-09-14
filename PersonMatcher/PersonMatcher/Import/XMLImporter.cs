@@ -16,8 +16,8 @@ namespace PersonMatcher
             List<Person> data = serializer.Deserialize(reader.BaseStream) as List<Person>;
             if (data != null)
             {
-                foreach (Person thing in data)
-                    list.Add(thing);
+                foreach (Person person in data)
+                    list.Add(person);
             }
         }
     }
