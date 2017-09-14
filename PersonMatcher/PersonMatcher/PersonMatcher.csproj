@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompareStrategy\CompareNameAndBirthdate.cs" />
+    <Compile Include="CompareStrategy\CompareSSNSFNAndGender.cs" />
     <Compile Include="CompareStrategy\CompareNameAndSSN.cs" />
     <Compile Include="CompareStrategy\ComparePairs.cs" />
     <Compile Include="Export\Exporter.cs" />

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PersonMatcher
 {
-    public class CompareNameAndSSN : ComparePairs
+    class CompareNameAndBirthdate : ComparePairs
     {
         public bool ComparePeople(Person a, Person b)
         {
@@ -18,10 +18,14 @@ namespace PersonMatcher
                 points++;
             if (a.LastName == b.LastName && (a.LastName != null && b.LastName != null))
                 points++;
-            if (a.SocialSecurityNumber == b.SocialSecurityNumber && (a.SocialSecurityNumber != null && b.SocialSecurityNumber != null))
+            if (a.BirthDay == b.BirthDay && (a.BirthDay > 0 && b.BirthDay > 0))
+                points++;
+            if (a.BirthMonth == b.BirthMonth && (a.BirthMonth > 0 && b.BirthMonth > 0))
+                points++;
+            if (a.BirthYear == b.BirthYear && (a.BirthMonth > 0 && b.BirthMonth > 0))
                 points++;
 
-            if (points >= 2)
+            if (points >= 4)
                 return true;
             return false;
         }

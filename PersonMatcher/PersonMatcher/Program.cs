@@ -11,16 +11,30 @@ namespace PersonMatcher
         static void Main(string[] args)
         {
             Console.Clear();
+            int numOfArgs = args.Length;
+            if (numOfArgs != 2 && numOfArgs != 3)
+            {
+                Console.Write("Error: Incorrect number of parameters given.\n");
+                ParameterError();
+                return;
+            }
             Importer importer = null;
             Exporter exporter = null;
-            int numOfArgs = args.Length;
-            string strategyNum = args[0];
-            string importFile = args[1];
-            string exportFile;
+            string strategyNum = null;
+            string importFile = null;
+            string exportFile = null;
+
+            strategyNum = args[0];
+            importFile = args[1];
             if (numOfArgs == 3)
                 exportFile = args[2];
-            else
-                exportFile = null;
+
+            if (!CheckFileExtension(importFile))
+            {
+                Console.Write("Error: Incorrect File Extension for the import file.\n");
+                ParameterError();
+                return;
+            }
 
             PersonSet peopleList = new PersonSet()
             {
@@ -35,13 +49,37 @@ namespace PersonMatcher
 
             if (peopleList.Count == 0)
             {
-                Console.Write("The file is empty!");
+                Console.Write("The import file is empty!");
+                Console.Write("Press any key to exit.");
+                Console.Read();
                 return;
             }
 
             peopleList.GetMatches();
 
             peopleList.WriteMatches();
+        }
+
+        private static void ParameterError()
+        {
+            Console.Write("You must enter either 2 or 3 parameters.\n");
+            Console.Write("The first parameter needs to be a number that represents the strategy to use.\n");
+            Console.Write("Those choices are 1, 2, or 3\n");
+            Console.Write("The second parameter you need to put in the name of either a json or xml file to read data from.\n");
+            Console.Write("The third parameter is an option.\n");
+            Console.Write("If you add this parameter it must be a file where the list of matches will be saved.\n");
+            Console.Write("Press any key to exit");
+            Console.Read();
+        }
+
+        private static bool CheckFileExtension(string filename)
+        {
+            string[] temp = filename.Split('.');
+
+            if (temp.Length == 2)
+                if (temp[1] == "xml" || temp[1] == "json")
+                    return true;
+            return false;
         }
     }
 }

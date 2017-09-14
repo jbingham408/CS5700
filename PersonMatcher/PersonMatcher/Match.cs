@@ -22,22 +22,24 @@ namespace PersonMatcher
         public void FindMatches()
         {
             ComparePairs compare = GetCompareStrategy();
-            bool match = false;
+
 
             foreach (Person personA in list)
             {
                 foreach(Person personB in list)
                 {
                     if (personA.ObjectId < personB.ObjectId)
-                        match = compare.ComparePeople(personA, personB);
-
-                    if(match)
                     {
-                        int[] newMatches = new int[2];
-                        newMatches[0] = personA.ObjectId;
-                        newMatches[1] = personB.ObjectId;
-                        matches.Add(newMatches);
-                        //Console.Write(personA.ObjectId + " " + personB.ObjectId + "\n");
+                        
+
+                        if (compare.ComparePeople(personA, personB))
+                        {
+                            int[] newMatches = new int[2];
+                            newMatches[0] = personA.ObjectId;
+                            newMatches[1] = personB.ObjectId;
+                            matches.Add(newMatches);
+                            //Console.Write(personA.ObjectId + " " + personB.ObjectId + "\n");
+                        }
                     }
                 }
             }
@@ -63,8 +65,10 @@ namespace PersonMatcher
                     compare = new CompareNameAndSSN();
                     break;
                 case 2:
+                    compare = new CompareSSNSFNAndGender();
                     break;
                 case 3:
+                    compare = new CompareNameAndBirthdate();
                     break;
             }
 
