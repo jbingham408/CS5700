@@ -30,6 +30,13 @@ namespace PersonMatcher
             if (numOfArgs == 3)
                 exportFile = args[2];
 
+            if(!CheckArgIsNum(args[0]))
+            {
+                Console.Write("Error: First Parameter must be a number\n");
+                ParameterError();
+                return;
+            }
+
             if (!CheckFileExtension(importFile))
             {
                 Console.Write("Error: Incorrect File Extension for the import file.\n");
@@ -94,6 +101,16 @@ namespace PersonMatcher
         {
             if (File.Exists(filename))
                 return true;
+            return false;
+        }
+
+        private static bool CheckArgIsNum(string num)
+        {
+            int actualNum;
+            if(int.TryParse(num, out actualNum))
+                if (actualNum > 0 && actualNum < 4)
+                    return true;
+
             return false;
         }
     }
