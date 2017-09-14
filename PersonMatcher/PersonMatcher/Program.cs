@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,6 +33,13 @@ namespace PersonMatcher
             if (!CheckFileExtension(importFile))
             {
                 Console.Write("Error: Incorrect File Extension for the import file.\n");
+                ParameterError();
+                return;
+            }
+
+            if(!CheckFileExists(importFile))
+            {
+                Console.Write("Error: Import file does not exists.\n");
                 ParameterError();
                 return;
             }
@@ -79,6 +87,13 @@ namespace PersonMatcher
             if (temp.Length == 2)
                 if (temp[1] == "xml" || temp[1] == "json")
                     return true;
+            return false;
+        }
+
+        private static bool CheckFileExists(string filename)
+        {
+            if (File.Exists(filename))
+                return true;
             return false;
         }
     }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PersonMatcher
 {
-    class RegularFileExporter : Exporter
+    class FileExporter : Exporter
     {
         public override void Write(List<int[]> matches, string filename)
         {
@@ -18,6 +18,11 @@ namespace PersonMatcher
                 writer.WriteLine(id[0] + ", " + id[1]);
             }
             writer.Close();
+        }
+
+        public override void Write(List<int[]> matches)
+        {
+            throw new NotImplementedException();
         }
     }
 }

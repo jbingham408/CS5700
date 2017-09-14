@@ -9,5 +9,6 @@ namespace PersonMatcher
     public abstract class Exporter
     {
         public abstract void Write(List<int[]> matches, string filename);
+        public abstract void Write(List<int[]> matches);
     }
 }

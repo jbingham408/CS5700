@@ -50,60 +50,19 @@ namespace PersonMatcher
             if (myExportFilename == null)
                 WriteMatchesToScreen();
             else
-            {
-                //WritePairsToScreen();
                 WriteMatchesToFile();
-            }
         }
+
         public void WriteMatchesToFile()
         {
-            string[] temp = myExportFilename.Split('.');
-
-            if (temp.Length == 2)
-            {
-                if (temp[1] == "xml")
-                {
-                    myExporter = new XMLExporter();
-                    Console.Write("Output to xml file\n");
-                }
-                else if (temp[1] == "json")
-                {
-                    myExporter = new JSONExporter();
-                    Console.Write("Output to json file\n");
-                }
-                else
-                {
-                    myExporter = new RegularFileExporter();
-                    myExporter.Write(myMatches.GetMatchesList(), myExportFilename);
-                }
-            }
-        }
-
-        public void WritePairsToScreen()
-        {
-            foreach (int[] id in myMatches.GetMatchesList())
-            {
-                Console.Write(id[0] + ", " + id[1] + "\n");
-            }
+            myExporter = new FileExporter();
+            myExporter.Write(myMatches.GetMatchesList(), myExportFilename);
         }
 
         public void WriteMatchesToScreen()
         {
-            foreach (int[] id in myMatches.GetMatchesList())
-            {
-                Console.Write("Match:\n");
-                foreach (int i in id)
-                {
-                    foreach (Person person in this)
-                    {
-                        if (person.ObjectId == i)
-                        {
-                            Console.Write("\tId=" + person.ObjectId + ", Name=" + person.FirstName + " " + person.MiddleName + " " + person.LastName
-                                + ", Birthday=" + person.BirthMonth + "/" + person.BirthDay + "/" + person.BirthYear + "\n");
-                        }
-                    }
-                }
-            }
+            myExporter = new ScreenExporter() { list = this };
+            myExporter.Write(myMatches.GetMatchesList());
         }
 
     }

@@ -48,16 +48,15 @@
     <Compile Include="CompareStrategy\CompareNameAndSSN.cs" />
     <Compile Include="CompareStrategy\ComparePairs.cs" />
     <Compile Include="Export\Exporter.cs" />
-    <Compile Include="Export\RegularFileExporter.cs" />
+    <Compile Include="Export\FileExporter.cs" />
     <Compile Include="Import\Importer.cs" />
-    <Compile Include="Export\JSONExporter.cs" />
+    <Compile Include="Export\ScreenExporter.cs" />
     <Compile Include="Import\JSONImporter.cs" />
     <Compile Include="Match.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="PersonSet.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Export\XMLExporter.cs" />
     <Compile Include="Import\XMLImporter.cs" />
   </ItemGroup>
   <ItemGroup>
