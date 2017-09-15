@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,8 +43,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompareStrategy\CompareNameAndBirthdate.cs" />
+    <Compile Include="CompareStrategy\CompareSSNSFNAndGender.cs" />
+    <Compile Include="CompareStrategy\CompareNameAndSSN.cs" />
+    <Compile Include="CompareStrategy\ComparePairs.cs" />
+    <Compile Include="Export\Exporter.cs" />
+    <Compile Include="Export\FileExporter.cs" />
+    <Compile Include="Import\Importer.cs" />
+    <Compile Include="Export\ScreenExporter.cs" />
+    <Compile Include="Import\JSONImporter.cs" />
+    <Compile Include="Match.cs" />
+    <Compile Include="Person.cs" />
+    <Compile Include="PersonSet.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Import\XMLImporter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
