@@ -1,12 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using RaceData;
+using RaceData.Messages;
 
-namespace AppLayer
+namespace RaceDataProcessor
 {
-    public class Class1
+    public class DataProcessor : IAthleteUpdateHandler
     {
+        public void ProcessUpdate(AthleteUpdate updateMessage)
+        {
+            Console.Write(updateMessage.ToString());
+        }
     }
 }

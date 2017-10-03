@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaceMonitor", "RaceMonitor\RaceMonitor.csproj", "{F206B647-1761-4F7C-AD5F-ED6E072489FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppLayer", "AppLayer\AppLayer.csproj", "{0186092E-BB27-425D-8102-5BCC027BD3B5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaceDataProcessor", "AppLayer\RaceDataProcessor.csproj", "{56F0E5F9-17BF-4940-A3BD-0F1ED55FE8AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{F206B647-1761-4F7C-AD5F-ED6E072489FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F206B647-1761-4F7C-AD5F-ED6E072489FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F206B647-1761-4F7C-AD5F-ED6E072489FE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0186092E-BB27-425D-8102-5BCC027BD3B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0186092E-BB27-425D-8102-5BCC027BD3B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0186092E-BB27-425D-8102-5BCC027BD3B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0186092E-BB27-425D-8102-5BCC027BD3B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56F0E5F9-17BF-4940-A3BD-0F1ED55FE8AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56F0E5F9-17BF-4940-A3BD-0F1ED55FE8AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56F0E5F9-17BF-4940-A3BD-0F1ED55FE8AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56F0E5F9-17BF-4940-A3BD-0F1ED55FE8AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
