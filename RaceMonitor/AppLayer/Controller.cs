@@ -20,10 +20,7 @@ namespace RaceDataProcessor
 
             data.Start();
 
-            while (readData)
-            {
-                Thread.Sleep(10000);
-            }
+            Thread.Sleep(180000);
 
             data.Stop();
         }

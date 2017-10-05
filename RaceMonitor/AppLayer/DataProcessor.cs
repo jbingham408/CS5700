@@ -8,7 +8,10 @@ namespace RaceDataProcessor
     {
         public void ProcessUpdate(AthleteUpdate updateMessage)
         {
-            Console.Write(updateMessage.ToString());
+            if(updateMessage.GetType() == typeof(RegistrationUpdate))
+            {
+
+            }
         }
     }
 }
