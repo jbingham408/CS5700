@@ -6,11 +6,14 @@ namespace RaceDataProcessor
     public class Controller
     {
         private SimulatedDataSource data;
-        public bool readData { get; set; }
+        public AthleteObserver observer { get; set; } = null;
+        public RaceCourse courseInfo = new RaceCourse();
+        public RaceEvent eventInfo = new RaceEvent();
+        public bool runningSimulation { get; set; }
 
         public void Run(object inputFile)
         {
-            readData = true;
+            runningSimulation = true;
             IAthleteUpdateHandler handler = new DataProcessor();
             data = new SimulatedDataSource()
             {
@@ -20,9 +23,11 @@ namespace RaceDataProcessor
 
             data.Start();
 
+            observer = (handler as DataProcessor).GetObserver();
             Thread.Sleep(180000);
 
             data.Stop();
+            runningSimulation = false;
         }
     }
 }

@@ -46,6 +46,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Athlete.cs" />
+    <Compile Include="AthleteObserver.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Controller.cs" />
     <Compile Include="DataProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

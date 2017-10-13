@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RaceMonitor
+namespace RaceDataProcessor
 {
     public class AthleteObserver : Form
     {
-        private readonly Dictionary<Int32, Athlete> observedAthletes = new Dictionary<int, Athlete>();
+        public Dictionary<Int32, Athlete> observedAthletes = new Dictionary<int, Athlete>();
 
-        protected bool repaintNeeded = false;
-        private readonly Timer refresh = new Timer();
+        protected bool updateNeeded = false;
+        protected readonly Timer refresh = new Timer();
         private readonly object myLock = new object();
 
         public void Update(Subject s)
@@ -28,8 +28,11 @@ namespace RaceMonitor
                         observedAthletes[athlete.bibNum] = athlete;
                 }
 
-                repaintNeeded = true;
+                updateNeeded = true;
             }
         }
+
+        
+        protected virtual void UpdateAthletes() { }
     }
 }
