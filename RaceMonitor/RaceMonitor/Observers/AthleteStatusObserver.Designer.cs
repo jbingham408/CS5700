@@ -43,9 +43,11 @@
             this.lastNameCol,
             this.statusCol});
             this.athleteStatusListBox.GridLines = true;
+            this.athleteStatusListBox.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.athleteStatusListBox.Location = new System.Drawing.Point(31, 31);
             this.athleteStatusListBox.Name = "athleteStatusListBox";
             this.athleteStatusListBox.Size = new System.Drawing.Size(371, 318);
+            this.athleteStatusListBox.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.athleteStatusListBox.TabIndex = 0;
             this.athleteStatusListBox.UseCompatibleStateImageBehavior = false;
             this.athleteStatusListBox.View = System.Windows.Forms.View.Details;

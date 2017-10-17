@@ -1,16 +1,18 @@
 ﻿using RaceDataProcessor;
 using System;
+using System.Collections.Generic;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace RaceMonitor
 {
-    public partial class AthleteStatusObserver : AthleteObserverDecorator
+    public partial class AthleteStatusObserver : AthleteObserver
     {
         private readonly object myLock = new object();
 
-        public AthleteStatusObserver(AthleteObserver obs) : base(obs)
+        public AthleteStatusObserver()
         {
-            Decorate();
+            InitializeComponent();
         }
 
         protected override void UpdateAthletes()
@@ -20,9 +22,9 @@ namespace RaceMonitor
             {
                 try
                 {
-                    AthleteObserver tempObs = new AthleteObserver() { observedAthletes = base.decorateObserver.observedAthletes };
+                    
                     athleteStatusListBox.BeginUpdate();
-                    foreach (var a in tempObs.observedAthletes.Values)
+                    foreach (var a in observedAthletes.Values)
                     {
                         string[] line = new string[5];
                         line[0] = a.bibNum.ToString();
@@ -44,7 +46,7 @@ namespace RaceMonitor
                         athleteStatusListBox.Items.Add(newLine);
                     }
                 }
-                catch (InvalidOperationException e) { }
+                catch (InvalidOperationException) { }
                 athleteStatusListBox.EndUpdate();
             }
         }
@@ -65,17 +67,40 @@ namespace RaceMonitor
         {
             //if (updateNeeded)
             //{
-                lock (myLock)
-                {
-                    UpdateAthletes();
-                    updateNeeded = false;
-                }
+            lock (myLock)
+            {
+                UpdateAthletes();
+                updateNeeded = false;
+            }
             //}
         }
 
-        public override void Decorate()
+        public void CheckForNewRegisters(object aList)
         {
-            InitializeComponent();
+            int count = 0;
+
+            while (count < 11)
+            {
+                lock (myLock)
+                {
+                    try
+                    {
+                        if ((aList as List<Athlete>).Count > observedAthletes.Count)
+                        {
+                            foreach (Athlete a in (aList as List<Athlete>))
+                            {
+                                a.Subscribe(this);
+                                a.Notify();
+                            }
+                            count = 0;
+                        }
+                        else
+                            count++;
+                    }
+                    catch (InvalidOperationException) { }
+                }
+                Thread.Sleep(3000);
+            }
         }
     }
 }

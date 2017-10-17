@@ -1,6 +1,6 @@
 ﻿namespace RaceMonitor
 {
-    partial class AthleteObserverDecorator
+    partial class SingleAthleteObserver
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "GUIAthleteObserver";
+            this.Text = "SingleAthleteObserver";
         }
 
         #endregion

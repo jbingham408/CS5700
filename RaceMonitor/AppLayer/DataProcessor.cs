@@ -7,9 +7,11 @@ namespace RaceDataProcessor
 {
     public class DataProcessor : IAthleteUpdateHandler
     {
-        private AthleteObserver observer = new AthleteObserver();
-        private List<Athlete> athletes = new List<Athlete>();
+        public List<Athlete> athletes = new List<Athlete>();
+        public AthleteObserver observer = new AthleteObserver();
         private object myLock = new object();
+
+
         public void ProcessUpdate(AthleteUpdate updateMessage)
         {
             if(updateMessage.GetType() == typeof(RegistrationUpdate))
@@ -28,8 +30,9 @@ namespace RaceDataProcessor
                         myStatus = "1"
                     };
                     newAthlete.Subscribe(observer);
-                    observer.Update(newAthlete);
+                    newAthlete.Notify();
                     athletes.Add(newAthlete);
+
                 }
             }
             else
@@ -37,30 +40,29 @@ namespace RaceDataProcessor
                 lock(myLock)
                 {
                     //RegistrationUpdate update = updateMessage as RegistrationUpdate;
-                    Athlete updateAthlete = athletes.Find(a => a.bibNum == updateMessage.BibNumber);
-                    updateAthlete.time = updateMessage.Timestamp;
+                    int updateAthleteIndex = athletes.FindIndex(a => a.bibNum == updateMessage.BibNumber);
+                    athletes[updateAthleteIndex].time = updateMessage.Timestamp;
                     if (updateMessage.GetType() == typeof(DidNotStartUpdate))
-                        updateAthlete.myStatus = "2";
+                        athletes[updateAthleteIndex].myStatus = "2";
                     else if (updateMessage.GetType() == typeof(StartedUpdate))
-                        updateAthlete.myStatus = "3";
+                        athletes[updateAthleteIndex].myStatus = "3";
                     else if (updateMessage.GetType() == typeof(LocationUpdate))
                     {
-                        updateAthlete.myStatus = "4";
-                        updateAthlete.distance = (updateMessage as LocationUpdate).LocationOnCourse;
+                        athletes[updateAthleteIndex].myStatus = "4";
+                        athletes[updateAthleteIndex].distance = (updateMessage as LocationUpdate).LocationOnCourse;
                     }
                     else if (updateMessage.GetType() == typeof(DidNotFinishUpdate))
-                        updateAthlete.myStatus = "5";
+                        athletes[updateAthleteIndex].myStatus = "5";
                     else if (updateMessage.GetType() == typeof(FinishedUpdate))
                     {
-                        updateAthlete.myStatus = "6";
-                        updateAthlete.time = (updateMessage as FinishedUpdate).OfficialEndTime;
+                        athletes[updateAthleteIndex].myStatus = "6";
+                        athletes[updateAthleteIndex].time = (updateMessage as FinishedUpdate).OfficialEndTime;
                     }
-                    observer.Update(updateAthlete);                  
+
+                    athletes[updateAthleteIndex].Notify();
                 }
             }
             
         }
-
-        public AthleteObserver GetObserver() { return observer; }
     }
 }

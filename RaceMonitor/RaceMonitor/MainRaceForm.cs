@@ -10,9 +10,10 @@ namespace RaceMonitor
     {
         private Controller controller { get; set; }
         private Thread dataThread { get; set; }
+        private Thread statusThread { get; set; }
         private AthleteObserver myObserver { get; set; }
-        private AthleteObserver statusObserver { get; set; }
         private List<AthleteObserver> observerList = new List<AthleteObserver>();
+        private List<Athlete> myAthleteList { get; set; }
         private string importFileName { get; set; } = null;
         private object myLock = new object();
 
@@ -59,16 +60,7 @@ namespace RaceMonitor
             controller.eventInfo.Title = eventTitleTextBox.Text;
             controller.eventInfo.StartDateTime = Convert.ToDateTime(eventDateTextBox.Text + " " + eventTimeTextBox.Text);
             dataThread.Start(importFileName);
-            myObserver = controller.observer;
-
-            while (controller.observer == null) { Thread.Sleep(1000); }
-            //myObserver = controller.observer;
-            //statusObserver = new AthleteStatusObserver();
-            //foreach(Athlete a in myObserver.observedAthletes.Values)
-            //{
-            //    statusObserver.Update(a);
-            //}
-            //statusObserver.Show();
+            
         }
 
         private void raceCourseComboBox_SelectedIndexChanged(object sender, System.EventArgs e)
@@ -91,13 +83,52 @@ namespace RaceMonitor
             }
         }
 
-        private void startObserversBtn_Click(object sender, EventArgs e)
+        private void createObserversBtn_Click(object sender, EventArgs e)
         {
-            statusObserver = myObserver = controller.observer;
-            if(statusObserverCheckBox.Checked)
+            while (controller.myAthletes == null) { Thread.Sleep(1000); }
+            myAthleteList = controller.myAthletes;
+            ObserverCreator observerCreator = new ObserverCreator() { aList = myAthleteList };
+            if (observerCreator.ShowDialog() == DialogResult.OK)
             {
-                statusObserver = new AthleteStatusObserver(myObserver);
-                statusObserver.Show();
+                myAthleteList = controller.myAthletes;
+                if (observerCreator.observerType == "status")
+                {
+                    myObserver = new AthleteStatusObserver();
+                    statusThread = new Thread(new ParameterizedThreadStart((myObserver as AthleteStatusObserver).CheckForNewRegisters));
+                    statusThread.Start(myAthleteList);
+                    myObserver.observerName = "Status " + (observerList.Count + 1);
+                    observerList.Add(myObserver);
+                    updateObserverList();
+                    myObserver.Show();
+                }
+                else if(observerCreator.observerType == "email")
+                {
+                    myObserver = new EmailObserver();
+                    myObserver.observerName = "Email " + (observerList.Count + 1);
+                    observerList.Add(myObserver);
+                    updateObserverList();
+                    myObserver.Show();
+                }
+                else if(observerCreator.observerType == "compare")
+                {
+                    myObserver = new ComparisonObserver();
+                    myObserver.observerName = "Comparison " + (observerList.Count + 1);
+                    Athlete temp = myAthleteList.Find(a => a.bibNum == Convert.ToInt32(observerCreator.athleteBibList[0]));
+                    temp.Subscribe(myObserver);
+                    temp.Notify();
+                    temp = myAthleteList.Find(a => a.bibNum == Convert.ToInt32(observerCreator.athleteBibList[1]));
+                    temp.Subscribe(myObserver);
+                    temp.Notify();
+                    myObserver.Show();
+                }
+            }
+        }
+
+        private void updateObserverList()
+        {
+            foreach(AthleteObserver obs in observerList)
+            {
+                observerListBox.Items.Add(obs.observerName);
             }
         }
     }

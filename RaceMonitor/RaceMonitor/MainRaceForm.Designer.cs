@@ -31,27 +31,23 @@
             this.exitBtn = new System.Windows.Forms.Button();
             this.runSimBtn = new System.Windows.Forms.Button();
             this.simInfoGroup = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.eventTimeTextBox = new System.Windows.Forms.TextBox();
+            this.eventDateTextBox = new System.Windows.Forms.TextBox();
+            this.eventTitleTextBox = new System.Windows.Forms.TextBox();
+            this.eventIdTextBox = new System.Windows.Forms.TextBox();
+            this.courseDistanceTextBox = new System.Windows.Forms.TextBox();
+            this.courseIdTextBox = new System.Windows.Forms.TextBox();
             this.raceCourseComboBox = new System.Windows.Forms.ComboBox();
             this.observerGroup = new System.Windows.Forms.GroupBox();
-            this.courseIdTextBox = new System.Windows.Forms.TextBox();
-            this.courseDistanceTextBox = new System.Windows.Forms.TextBox();
-            this.eventIdTextBox = new System.Windows.Forms.TextBox();
-            this.eventTitleTextBox = new System.Windows.Forms.TextBox();
-            this.eventDateTextBox = new System.Windows.Forms.TextBox();
-            this.eventTimeTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.createObserversBtn = new System.Windows.Forms.Button();
             this.observerListBox = new System.Windows.Forms.ListBox();
-            this.startObserversBtn = new System.Windows.Forms.Button();
-            this.statusObserverCheckBox = new System.Windows.Forms.CheckBox();
-            this.leaderBoardCheckBox = new System.Windows.Forms.CheckBox();
-            this.emailObserverCheckBox = new System.Windows.Forms.CheckBox();
-            this.compareObserverCheckBox = new System.Windows.Forms.CheckBox();
             this.simInfoGroup.SuspendLayout();
             this.observerGroup.SuspendLayout();
             this.SuspendLayout();
@@ -101,6 +97,115 @@
             this.simInfoGroup.TabStop = false;
             this.simInfoGroup.Text = "Simulation Information";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 285);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(64, 13);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Event Time:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 248);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(64, 13);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Event Date:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 209);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Event Title:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(17, 170);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Event Id:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(15, 108);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Distance:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 72);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Course Id:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(24, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Course:";
+            // 
+            // eventTimeTextBox
+            // 
+            this.eventTimeTextBox.Location = new System.Drawing.Point(73, 282);
+            this.eventTimeTextBox.Name = "eventTimeTextBox";
+            this.eventTimeTextBox.ReadOnly = true;
+            this.eventTimeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.eventTimeTextBox.TabIndex = 9;
+            // 
+            // eventDateTextBox
+            // 
+            this.eventDateTextBox.Location = new System.Drawing.Point(73, 245);
+            this.eventDateTextBox.Name = "eventDateTextBox";
+            this.eventDateTextBox.ReadOnly = true;
+            this.eventDateTextBox.Size = new System.Drawing.Size(100, 20);
+            this.eventDateTextBox.TabIndex = 8;
+            // 
+            // eventTitleTextBox
+            // 
+            this.eventTitleTextBox.Location = new System.Drawing.Point(73, 206);
+            this.eventTitleTextBox.Name = "eventTitleTextBox";
+            this.eventTitleTextBox.Size = new System.Drawing.Size(100, 20);
+            this.eventTitleTextBox.TabIndex = 7;
+            // 
+            // eventIdTextBox
+            // 
+            this.eventIdTextBox.Location = new System.Drawing.Point(73, 167);
+            this.eventIdTextBox.Name = "eventIdTextBox";
+            this.eventIdTextBox.Size = new System.Drawing.Size(100, 20);
+            this.eventIdTextBox.TabIndex = 6;
+            // 
+            // courseDistanceTextBox
+            // 
+            this.courseDistanceTextBox.Location = new System.Drawing.Point(73, 105);
+            this.courseDistanceTextBox.Name = "courseDistanceTextBox";
+            this.courseDistanceTextBox.ReadOnly = true;
+            this.courseDistanceTextBox.Size = new System.Drawing.Size(100, 20);
+            this.courseDistanceTextBox.TabIndex = 5;
+            // 
+            // courseIdTextBox
+            // 
+            this.courseIdTextBox.Location = new System.Drawing.Point(73, 69);
+            this.courseIdTextBox.Name = "courseIdTextBox";
+            this.courseIdTextBox.ReadOnly = true;
+            this.courseIdTextBox.Size = new System.Drawing.Size(100, 20);
+            this.courseIdTextBox.TabIndex = 4;
+            // 
             // raceCourseComboBox
             // 
             this.raceCourseComboBox.FormattingEnabled = true;
@@ -115,11 +220,7 @@
             // 
             // observerGroup
             // 
-            this.observerGroup.Controls.Add(this.compareObserverCheckBox);
-            this.observerGroup.Controls.Add(this.emailObserverCheckBox);
-            this.observerGroup.Controls.Add(this.leaderBoardCheckBox);
-            this.observerGroup.Controls.Add(this.statusObserverCheckBox);
-            this.observerGroup.Controls.Add(this.startObserversBtn);
+            this.observerGroup.Controls.Add(this.createObserversBtn);
             this.observerGroup.Controls.Add(this.observerListBox);
             this.observerGroup.Location = new System.Drawing.Point(234, 26);
             this.observerGroup.Name = "observerGroup";
@@ -128,114 +229,15 @@
             this.observerGroup.TabStop = false;
             this.observerGroup.Text = "Race Observers";
             // 
-            // courseIdTextBox
+            // createObserversBtn
             // 
-            this.courseIdTextBox.Location = new System.Drawing.Point(73, 69);
-            this.courseIdTextBox.Name = "courseIdTextBox";
-            this.courseIdTextBox.ReadOnly = true;
-            this.courseIdTextBox.Size = new System.Drawing.Size(100, 20);
-            this.courseIdTextBox.TabIndex = 4;
-            // 
-            // courseDistanceTextBox
-            // 
-            this.courseDistanceTextBox.Location = new System.Drawing.Point(73, 105);
-            this.courseDistanceTextBox.Name = "courseDistanceTextBox";
-            this.courseDistanceTextBox.ReadOnly = true;
-            this.courseDistanceTextBox.Size = new System.Drawing.Size(100, 20);
-            this.courseDistanceTextBox.TabIndex = 5;
-            // 
-            // eventIdTextBox
-            // 
-            this.eventIdTextBox.Location = new System.Drawing.Point(73, 167);
-            this.eventIdTextBox.Name = "eventIdTextBox";
-            this.eventIdTextBox.Size = new System.Drawing.Size(100, 20);
-            this.eventIdTextBox.TabIndex = 6;
-            // 
-            // eventTitleTextBox
-            // 
-            this.eventTitleTextBox.Location = new System.Drawing.Point(73, 206);
-            this.eventTitleTextBox.Name = "eventTitleTextBox";
-            this.eventTitleTextBox.Size = new System.Drawing.Size(100, 20);
-            this.eventTitleTextBox.TabIndex = 7;
-            // 
-            // eventDateTextBox
-            // 
-            this.eventDateTextBox.Location = new System.Drawing.Point(73, 245);
-            this.eventDateTextBox.Name = "eventDateTextBox";
-            this.eventDateTextBox.ReadOnly = true;
-            this.eventDateTextBox.Size = new System.Drawing.Size(100, 20);
-            this.eventDateTextBox.TabIndex = 8;
-            // 
-            // eventTimeTextBox
-            // 
-            this.eventTimeTextBox.Location = new System.Drawing.Point(73, 282);
-            this.eventTimeTextBox.Name = "eventTimeTextBox";
-            this.eventTimeTextBox.ReadOnly = true;
-            this.eventTimeTextBox.Size = new System.Drawing.Size(100, 20);
-            this.eventTimeTextBox.TabIndex = 9;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 34);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Course:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 72);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 13);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Course Id:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 108);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 13);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Distance:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 170);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 13);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Event Id:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 209);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 13);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Event Title:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 248);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 13);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Event Date:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 285);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(64, 13);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "Event Time:";
+            this.createObserversBtn.Location = new System.Drawing.Point(49, 199);
+            this.createObserversBtn.Name = "createObserversBtn";
+            this.createObserversBtn.Size = new System.Drawing.Size(97, 23);
+            this.createObserversBtn.TabIndex = 1;
+            this.createObserversBtn.Text = "Create Observer";
+            this.createObserversBtn.UseVisualStyleBackColor = true;
+            this.createObserversBtn.Click += new System.EventHandler(this.createObserversBtn_Click);
             // 
             // observerListBox
             // 
@@ -244,56 +246,6 @@
             this.observerListBox.Name = "observerListBox";
             this.observerListBox.Size = new System.Drawing.Size(188, 121);
             this.observerListBox.TabIndex = 0;
-            // 
-            // startObserversBtn
-            // 
-            this.startObserversBtn.Location = new System.Drawing.Point(56, 318);
-            this.startObserversBtn.Name = "startObserversBtn";
-            this.startObserversBtn.Size = new System.Drawing.Size(97, 23);
-            this.startObserversBtn.TabIndex = 1;
-            this.startObserversBtn.Text = "Show Observers";
-            this.startObserversBtn.UseVisualStyleBackColor = true;
-            this.startObserversBtn.Click += new System.EventHandler(this.startObserversBtn_Click);
-            // 
-            // statusObserverCheckBox
-            // 
-            this.statusObserverCheckBox.AutoSize = true;
-            this.statusObserverCheckBox.Location = new System.Drawing.Point(15, 169);
-            this.statusObserverCheckBox.Name = "statusObserverCheckBox";
-            this.statusObserverCheckBox.Size = new System.Drawing.Size(138, 17);
-            this.statusObserverCheckBox.TabIndex = 2;
-            this.statusObserverCheckBox.Text = "Athlete Status Observer";
-            this.statusObserverCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // leaderBoardCheckBox
-            // 
-            this.leaderBoardCheckBox.AutoSize = true;
-            this.leaderBoardCheckBox.Location = new System.Drawing.Point(15, 192);
-            this.leaderBoardCheckBox.Name = "leaderBoardCheckBox";
-            this.leaderBoardCheckBox.Size = new System.Drawing.Size(136, 17);
-            this.leaderBoardCheckBox.TabIndex = 3;
-            this.leaderBoardCheckBox.Text = "Leader Board Observer";
-            this.leaderBoardCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // emailObserverCheckBox
-            // 
-            this.emailObserverCheckBox.AutoSize = true;
-            this.emailObserverCheckBox.Location = new System.Drawing.Point(15, 215);
-            this.emailObserverCheckBox.Name = "emailObserverCheckBox";
-            this.emailObserverCheckBox.Size = new System.Drawing.Size(97, 17);
-            this.emailObserverCheckBox.TabIndex = 4;
-            this.emailObserverCheckBox.Text = "Email Observer";
-            this.emailObserverCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // compareObserverCheckBox
-            // 
-            this.compareObserverCheckBox.AutoSize = true;
-            this.compareObserverCheckBox.Location = new System.Drawing.Point(15, 238);
-            this.compareObserverCheckBox.Name = "compareObserverCheckBox";
-            this.compareObserverCheckBox.Size = new System.Drawing.Size(127, 17);
-            this.compareObserverCheckBox.TabIndex = 5;
-            this.compareObserverCheckBox.Text = "Comparison Observer";
-            this.compareObserverCheckBox.UseVisualStyleBackColor = true;
             // 
             // MainRaceForm
             // 
@@ -310,7 +262,6 @@
             this.simInfoGroup.ResumeLayout(false);
             this.simInfoGroup.PerformLayout();
             this.observerGroup.ResumeLayout(false);
-            this.observerGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -335,11 +286,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox compareObserverCheckBox;
-        private System.Windows.Forms.CheckBox emailObserverCheckBox;
-        private System.Windows.Forms.CheckBox leaderBoardCheckBox;
-        private System.Windows.Forms.CheckBox statusObserverCheckBox;
-        private System.Windows.Forms.Button startObserversBtn;
+        private System.Windows.Forms.Button createObserversBtn;
         private System.Windows.Forms.ListBox observerListBox;
     }
 }

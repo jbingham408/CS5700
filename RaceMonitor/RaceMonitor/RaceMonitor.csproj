@@ -49,20 +49,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComparisonObserver.cs">
+    <Compile Include="Decorator\LeaderBoardStatusObserver.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EmailObserver.cs">
+    <Compile Include="Decorator\LeaderBoardStatusObserver.Designer.cs">
+      <DependentUpon>LeaderBoardStatusObserver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Decorator\StatusObserverDecorator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GraphDisplayObserver.cs">
+    <Compile Include="Decorator\StatusObserverDecorator.Designer.cs">
+      <DependentUpon>StatusObserverDecorator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Observers\ComparisonObserver.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AthleteObserverDecorator.cs">
+    <Compile Include="Observers\ComparisonObserver.Designer.cs">
+      <DependentUpon>ComparisonObserver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Observers\EmailObserver.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AthleteObserverDecorator.Designer.cs">
-      <DependentUpon>AthleteObserverDecorator.cs</DependentUpon>
+    <Compile Include="Observers\EmailObserver.Designer.cs">
+      <DependentUpon>EmailObserver.cs</DependentUpon>
     </Compile>
     <Compile Include="MainRaceForm.cs">
       <SubType>Form</SubType>
@@ -70,25 +79,37 @@
     <Compile Include="MainRaceForm.Designer.cs">
       <DependentUpon>MainRaceForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="AthleteStatusObserver.cs">
+    <Compile Include="ObserverCreator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AthleteStatusObserver.Designer.cs">
+    <Compile Include="ObserverCreator.Designer.cs">
+      <DependentUpon>ObserverCreator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Observers\AthleteStatusObserver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Observers\AthleteStatusObserver.Designer.cs">
       <DependentUpon>AthleteStatusObserver.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ComparisonObserver.resx">
+    <Compile Include="Observers\SingleAthleteObserver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Observers\SingleAthleteObserver.Designer.cs">
+      <DependentUpon>SingleAthleteObserver.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Observers\ComparisonObserver.resx">
       <DependentUpon>ComparisonObserver.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmailObserver.resx">
+    <EmbeddedResource Include="Observers\EmailObserver.resx">
       <DependentUpon>EmailObserver.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GraphDisplayObserver.resx">
-      <DependentUpon>GraphDisplayObserver.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainRaceForm.resx">
       <DependentUpon>MainRaceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ObserverCreator.resx">
+      <DependentUpon>ObserverCreator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -99,7 +120,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AthleteStatusObserver.resx">
+    <EmbeddedResource Include="Observers\AthleteStatusObserver.resx">
       <DependentUpon>AthleteStatusObserver.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

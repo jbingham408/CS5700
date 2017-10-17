@@ -14,6 +14,7 @@ namespace RaceDataProcessor
         protected bool updateNeeded = false;
         protected readonly Timer refresh = new Timer();
         private readonly object myLock = new object();
+        public string observerName { get; set; }
 
         public void Update(Subject s)
         {
