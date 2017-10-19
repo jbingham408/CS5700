@@ -4,14 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//This is the base subject class
+//Contains basic information about a subject
+//Contains how to subscribe and unsubscribe the subject and update info in the observers
+
 namespace RaceDataProcessor
 {
     public class Subject
     {
         private readonly object myLock = new object();
-        private readonly List<AthleteObserver> subscribers = new List<AthleteObserver>();
-
-        public List<AthleteObserver> Subscribers { get { return subscribers; } }
+        public readonly List<AthleteObserver> subscribers = new List<AthleteObserver>();
 
         public void Subscribe(AthleteObserver observer)
         {

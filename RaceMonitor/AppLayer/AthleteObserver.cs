@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//This is the base observer class
+//Contains all the methods and variables used by most or all observers
+
 namespace RaceDataProcessor
 {
     public class AthleteObserver : Form
@@ -14,8 +17,10 @@ namespace RaceDataProcessor
         protected bool updateNeeded = false;
         protected readonly Timer refresh = new Timer();
         private readonly object myLock = new object();
+        public bool keepGoing { get; set; } = false;
         public string observerName { get; set; }
 
+        //updates all the subscribed subjects
         public void Update(Subject s)
         {
             Athlete athlete = s as Athlete;
@@ -33,7 +38,27 @@ namespace RaceDataProcessor
             }
         }
 
-        
+        //starts a timer that will update listviews
+        protected void StartUpdateTimer()
+        {
+            refresh.Interval = 1000;
+            refresh.Tick += StartUpdate;
+            refresh.Start();
+        }
+
+        //updates the listviews
+        private void StartUpdate(object sender, EventArgs e)
+        {
+            if (updateNeeded)
+            {
+                lock (myLock)
+                {
+                    UpdateAthletes();
+                    updateNeeded = false;
+                }
+            }
+        }
+
         protected virtual void UpdateAthletes() { }
     }
 }

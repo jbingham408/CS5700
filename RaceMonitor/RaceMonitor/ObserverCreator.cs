@@ -4,41 +4,44 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Threading;
 
+//A window to indicate which observer to create
+
 namespace RaceMonitor
 {
     public partial class ObserverCreator : Form
     {
-        public bool leaderBoardChecked = false;
         public string observerType { get; set; }
         private object myLock = new object();
         public List<Athlete> aList { get; set; }
         public List<string> athleteBibList = new List<string>();
-        private Thread listUpdateThread { get; set; }
-        private bool keepGoing { get; set; } = false;
+        public List<string> statusAdditionalInfo = new List<string>();
+
 
         public ObserverCreator()
         {
             InitializeComponent();
         }       
 
+        //checks if the status observer is selected
         private void athleteStatusRB_CheckedChanged(object sender, EventArgs e)
         {
             if (athleteStatusRB.Checked)
-                orderStatusCB.Show();
+                statusGroupBox.Show();
             else
             {
-                orderStatusCB.Hide();
-                orderStatusCB.Checked = false;
+                statusGroupBox.Hide();
+                ageCB.Checked = false;
             }
         }
 
+        //Indicates which observer needs to be created
         private void createBtn_Click(object sender, EventArgs e)
         {
             if (athleteStatusRB.Checked)
             {
                 observerType = "status";
-                if (orderStatusCB.Checked)
-                    leaderBoardChecked = true;
+                //if (ageCB.Checked)
+                //    statusAdditionalInfo.Add("age");
             }
             else if (emailRB.Checked)
                 observerType = "email";
@@ -59,7 +62,7 @@ namespace RaceMonitor
                 {
                     string[] athlete = athlete1ComboBox.Text.Split(' ');
                     athleteBibList.Add(athlete[0]);
-                    observerType = "compare";
+                    observerType = "single";
                 }
             }
             else
@@ -68,28 +71,45 @@ namespace RaceMonitor
             this.DialogResult = DialogResult.OK;
         }
 
+        //checks if the comparison observer is selected
         private void athleteCompareRB_CheckedChanged(object sender, EventArgs e)
         {
             if (athleteCompareRB.Checked)
             {
+                athleteGroupBox.Show();
                 athlete1ComboBox.Show();
+                athlete1Label.Show();
                 athlete2ComboBox.Show();
+                athlete2Label.Show();
             }
             else
             {
                 athlete1ComboBox.Hide();
+                athlete1Label.Hide();
                 athlete2ComboBox.Hide();
+                athlete2Label.Hide();
+                athleteGroupBox.Hide();
             }
         }
 
+        //checks if the single athlete observer is selected
         private void singleAthleteTrackerRB_CheckedChanged(object sender, EventArgs e)
         {
             if (singleAthleteTrackerRB.Checked)
+            {
+                athleteGroupBox.Show();
                 athlete1ComboBox.Show();
+                athlete1Label.Show();
+            }
             else
+            {
                 athlete1ComboBox.Hide();
+                athlete1Label.Hide();
+                athleteGroupBox.Hide();
+            }
         }
 
+        //inserts all the athletes into the two drop down lists of selectable athletes
         private void populateAthleteList()
         {
 

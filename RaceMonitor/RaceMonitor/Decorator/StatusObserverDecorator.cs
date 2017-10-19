@@ -10,14 +10,13 @@ using System.Windows.Forms;
 
 namespace RaceMonitor.Decorator
 {
-    public abstract partial class StatusObserverDecorator : AthleteStatusObserver
+    public partial class StatusObserverDecorator : AthleteStatusObserver
     {
         protected AthleteStatusObserver baseStatusObserver { get; set; }
         protected StatusObserverDecorator(AthleteStatusObserver sObs)
         {
             this.baseStatusObserver = sObs;
+            InitializeComponent();
         }
-
-        public abstract void Decorate();
     }
 }

@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
 
+//This observer monitors the status of every athlete
+//It will indicate all who have registered and their current status for the event
+
 namespace RaceMonitor
 {
     public partial class AthleteStatusObserver : AthleteObserver
@@ -15,6 +18,7 @@ namespace RaceMonitor
             InitializeComponent();
         }
 
+        //updates the listview with the new data
         protected override void UpdateAthletes()
         {
             athleteStatusListBox.Items.Clear();
@@ -56,25 +60,7 @@ namespace RaceMonitor
             StartUpdateTimer();
         }
 
-        protected void StartUpdateTimer()
-        {
-            refresh.Interval = 1000;
-            refresh.Tick += StartUpdate;
-            refresh.Start();
-        }
-
-        private void StartUpdate(object sender, EventArgs e)
-        {
-            //if (updateNeeded)
-            //{
-            lock (myLock)
-            {
-                UpdateAthletes();
-                updateNeeded = false;
-            }
-            //}
-        }
-
+        //checks if there are athletes that arent being observered
         public void CheckForNewRegisters(object aList)
         {
             int count = 0;

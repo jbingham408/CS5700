@@ -49,11 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Decorator\LeaderBoardStatusObserver.cs">
+    <Compile Include="Decorator\AgeStatusObserver.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Decorator\LeaderBoardStatusObserver.Designer.cs">
-      <DependentUpon>LeaderBoardStatusObserver.cs</DependentUpon>
+    <Compile Include="Decorator\AgeStatusObserver.Designer.cs">
+      <DependentUpon>AgeStatusObserver.cs</DependentUpon>
     </Compile>
     <Compile Include="Decorator\StatusObserverDecorator.cs">
       <SubType>Form</SubType>
@@ -110,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ObserverCreator.resx">
       <DependentUpon>ObserverCreator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Observers\SingleAthleteObserver.resx">
+      <DependentUpon>SingleAthleteObserver.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

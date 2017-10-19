@@ -35,11 +35,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.athlete1ListBox = new System.Windows.Forms.ListView();
+            this.distance1Column = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.time1Column = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.athlete2ListBox = new System.Windows.Forms.ListView();
             this.distance2Column = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.time2Column = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.distance1Column = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.time1Column = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.athlete1BibText = new System.Windows.Forms.TextBox();
             this.athlete1LastNameText = new System.Windows.Forms.TextBox();
             this.athlete1FirstNameText = new System.Windows.Forms.TextBox();
@@ -78,7 +78,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(264, 65);
+            this.label4.Location = new System.Drawing.Point(272, 65);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 17);
             this.label4.TabIndex = 10;
@@ -87,7 +87,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(264, 37);
+            this.label5.Location = new System.Drawing.Point(272, 37);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 17);
             this.label5.TabIndex = 9;
@@ -96,7 +96,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(258, 9);
+            this.label6.Location = new System.Drawing.Point(266, 9);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(86, 17);
             this.label6.TabIndex = 8;
@@ -107,70 +107,92 @@
             this.athlete1ListBox.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.distance1Column,
             this.time1Column});
-            this.athlete1ListBox.Location = new System.Drawing.Point(12, 111);
+            this.athlete1ListBox.Location = new System.Drawing.Point(266, 105);
             this.athlete1ListBox.Name = "athlete1ListBox";
-            this.athlete1ListBox.Size = new System.Drawing.Size(169, 276);
+            this.athlete1ListBox.Size = new System.Drawing.Size(216, 276);
             this.athlete1ListBox.TabIndex = 11;
             this.athlete1ListBox.UseCompatibleStateImageBehavior = false;
+            this.athlete1ListBox.View = System.Windows.Forms.View.Details;
+            // 
+            // distance1Column
+            // 
+            this.distance1Column.Text = "Distance";
+            this.distance1Column.Width = 80;
+            // 
+            // time1Column
+            // 
+            this.time1Column.Text = "Time";
+            this.time1Column.Width = 52;
             // 
             // athlete2ListBox
             // 
             this.athlete2ListBox.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.distance2Column,
             this.time2Column});
-            this.athlete2ListBox.Location = new System.Drawing.Point(258, 111);
+            this.athlete2ListBox.Location = new System.Drawing.Point(15, 105);
             this.athlete2ListBox.Name = "athlete2ListBox";
-            this.athlete2ListBox.Size = new System.Drawing.Size(169, 276);
+            this.athlete2ListBox.Size = new System.Drawing.Size(216, 276);
             this.athlete2ListBox.TabIndex = 12;
             this.athlete2ListBox.UseCompatibleStateImageBehavior = false;
+            this.athlete2ListBox.View = System.Windows.Forms.View.Details;
+            // 
+            // distance2Column
+            // 
+            this.distance2Column.Text = "Distance";
+            this.distance2Column.Width = 83;
+            // 
+            // time2Column
+            // 
+            this.time2Column.Text = "Time";
+            this.time2Column.Width = 72;
             // 
             // athlete1BibText
             // 
             this.athlete1BibText.Location = new System.Drawing.Point(104, 6);
             this.athlete1BibText.Name = "athlete1BibText";
-            this.athlete1BibText.Size = new System.Drawing.Size(77, 22);
+            this.athlete1BibText.Size = new System.Drawing.Size(127, 22);
             this.athlete1BibText.TabIndex = 13;
             // 
             // athlete1LastNameText
             // 
             this.athlete1LastNameText.Location = new System.Drawing.Point(104, 62);
             this.athlete1LastNameText.Name = "athlete1LastNameText";
-            this.athlete1LastNameText.Size = new System.Drawing.Size(77, 22);
+            this.athlete1LastNameText.Size = new System.Drawing.Size(127, 22);
             this.athlete1LastNameText.TabIndex = 14;
             // 
             // athlete1FirstNameText
             // 
             this.athlete1FirstNameText.Location = new System.Drawing.Point(104, 34);
             this.athlete1FirstNameText.Name = "athlete1FirstNameText";
-            this.athlete1FirstNameText.Size = new System.Drawing.Size(77, 22);
+            this.athlete1FirstNameText.Size = new System.Drawing.Size(127, 22);
             this.athlete1FirstNameText.TabIndex = 15;
             // 
             // athlete2BibText
             // 
-            this.athlete2BibText.Location = new System.Drawing.Point(350, 6);
+            this.athlete2BibText.Location = new System.Drawing.Point(358, 6);
             this.athlete2BibText.Name = "athlete2BibText";
-            this.athlete2BibText.Size = new System.Drawing.Size(77, 22);
+            this.athlete2BibText.Size = new System.Drawing.Size(124, 22);
             this.athlete2BibText.TabIndex = 16;
             // 
             // athlete2FirstNameText
             // 
-            this.athlete2FirstNameText.Location = new System.Drawing.Point(350, 34);
+            this.athlete2FirstNameText.Location = new System.Drawing.Point(358, 34);
             this.athlete2FirstNameText.Name = "athlete2FirstNameText";
-            this.athlete2FirstNameText.Size = new System.Drawing.Size(77, 22);
+            this.athlete2FirstNameText.Size = new System.Drawing.Size(124, 22);
             this.athlete2FirstNameText.TabIndex = 17;
             // 
             // athlete2LastNameText
             // 
-            this.athlete2LastNameText.Location = new System.Drawing.Point(350, 62);
+            this.athlete2LastNameText.Location = new System.Drawing.Point(358, 62);
             this.athlete2LastNameText.Name = "athlete2LastNameText";
-            this.athlete2LastNameText.Size = new System.Drawing.Size(77, 22);
+            this.athlete2LastNameText.Size = new System.Drawing.Size(124, 22);
             this.athlete2LastNameText.TabIndex = 18;
             // 
             // ComparisonObserver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(452, 414);
+            this.ClientSize = new System.Drawing.Size(494, 414);
             this.Controls.Add(this.athlete2LastNameText);
             this.Controls.Add(this.athlete2FirstNameText);
             this.Controls.Add(this.athlete2BibText);
@@ -187,6 +209,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ComparisonObserver";
             this.Text = "Athlete Comparison Observer";
+            this.Load += new System.EventHandler(this.ComparisonObserver_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

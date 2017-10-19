@@ -11,6 +11,7 @@ namespace RaceMonitor
         private Controller controller { get; set; }
         private Thread dataThread { get; set; }
         private Thread statusThread { get; set; }
+        private Thread emailThread { get; set; }
         private AthleteObserver myObserver { get; set; }
         private List<AthleteObserver> observerList = new List<AthleteObserver>();
         private List<Athlete> myAthleteList { get; set; }
@@ -94,6 +95,8 @@ namespace RaceMonitor
                 if (observerCreator.observerType == "status")
                 {
                     myObserver = new AthleteStatusObserver();
+                    //if (observerCreator.statusAdditionalInfo.Contains("leader"))
+                    //    myObserver = new Decorator.LeaderBoardStatusObserver(myObserver as AthleteStatusObserver);
                     statusThread = new Thread(new ParameterizedThreadStart((myObserver as AthleteStatusObserver).CheckForNewRegisters));
                     statusThread.Start(myAthleteList);
                     myObserver.observerName = "Status " + (observerList.Count + 1);
@@ -104,6 +107,8 @@ namespace RaceMonitor
                 else if(observerCreator.observerType == "email")
                 {
                     myObserver = new EmailObserver();
+                    emailThread = new Thread(new ParameterizedThreadStart((myObserver as EmailObserver).CheckForNewRegisters));
+                    emailThread.Start(myAthleteList);
                     myObserver.observerName = "Email " + (observerList.Count + 1);
                     observerList.Add(myObserver);
                     updateObserverList();
@@ -119,6 +124,19 @@ namespace RaceMonitor
                     temp = myAthleteList.Find(a => a.bibNum == Convert.ToInt32(observerCreator.athleteBibList[1]));
                     temp.Subscribe(myObserver);
                     temp.Notify();
+                    observerList.Add(myObserver);
+                    updateObserverList();
+                    myObserver.Show();
+                }
+                else if(observerCreator.observerType == "single")
+                {
+                    myObserver = new SingleAthleteObserver();
+                    myObserver.observerName = "Single Athlete " + (observerList.Count + 1);
+                    Athlete temp = myAthleteList.Find(a => a.bibNum == Convert.ToInt32(observerCreator.athleteBibList[0]));
+                    temp.Subscribe(myObserver);
+                    temp.Notify();
+                    observerList.Add(myObserver);
+                    updateObserverList();
                     myObserver.Show();
                 }
             }
@@ -126,10 +144,13 @@ namespace RaceMonitor
 
         private void updateObserverList()
         {
+            observerListBox.Items.Clear();
+            observerListBox.BeginUpdate();
             foreach(AthleteObserver obs in observerList)
             {
                 observerListBox.Items.Add(obs.observerName);
             }
+            observerListBox.EndUpdate();
         }
     }
 }

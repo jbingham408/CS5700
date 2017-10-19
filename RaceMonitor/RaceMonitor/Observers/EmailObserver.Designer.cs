@@ -52,7 +52,7 @@
             "10",
             "15",
             "30"});
-            this.timeIntervalComboList.Location = new System.Drawing.Point(167, 74);
+            this.timeIntervalComboList.Location = new System.Drawing.Point(222, 74);
             this.timeIntervalComboList.Name = "timeIntervalComboList";
             this.timeIntervalComboList.Size = new System.Drawing.Size(49, 24);
             this.timeIntervalComboList.TabIndex = 0;
@@ -60,7 +60,7 @@
             // 
             // emailTextBox
             // 
-            this.emailTextBox.Location = new System.Drawing.Point(167, 39);
+            this.emailTextBox.Location = new System.Drawing.Point(222, 37);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(286, 22);
             this.emailTextBox.TabIndex = 1;
@@ -68,7 +68,7 @@
             // emailLabel
             // 
             this.emailLabel.AutoSize = true;
-            this.emailLabel.Location = new System.Drawing.Point(59, 42);
+            this.emailLabel.Location = new System.Drawing.Point(118, 40);
             this.emailLabel.Name = "emailLabel";
             this.emailLabel.Size = new System.Drawing.Size(102, 17);
             this.emailLabel.TabIndex = 2;
@@ -79,9 +79,9 @@
             this.timeIntervalLabel.AutoSize = true;
             this.timeIntervalLabel.Location = new System.Drawing.Point(15, 77);
             this.timeIntervalLabel.Name = "timeIntervalLabel";
-            this.timeIntervalLabel.Size = new System.Drawing.Size(146, 17);
+            this.timeIntervalLabel.Size = new System.Drawing.Size(205, 17);
             this.timeIntervalLabel.TabIndex = 3;
-            this.timeIntervalLabel.Text = "Time Between Emails:";
+            this.timeIntervalLabel.Text = "Time(Minutes) Between Emails:";
             // 
             // createBtn
             // 
