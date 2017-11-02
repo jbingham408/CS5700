@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UMLDiagramHW3.Properties
+namespace UmlDiagramHW3.Properties
 {
 
 
